@@ -17,8 +17,8 @@ function neo-commit(){
 # Deletions are run first, then insertions.
 
 
-# Add the path of all deleted files to: neoaux-commit-del.out
-directory=$( cat ./neoaux-commit-del.out | _exclude )
+# Add the path of all deleted files to: neoaux-commit-DEL.out
+directory=$( cat ./neoaux-commit-DEL.out | _exclude )
 directory_size=$( echo "$directory" | wc -l )
 
 i1=1
@@ -95,8 +95,8 @@ echo -e "$(tput setaf 2)neo-push-all$(tput sgr0): upload every single file withi
 echo -e "$(tput setaf 2)neo-push-errorlog$(tput sgr0): Reads the log printed by $(tput bold)neocities-push-all.sh$(tput sgr0) and throws back every file upload attempt which failed.\n  $(tput bold)Usage:\n  1.$(tput sgr0) Copy the $(tput bold)entire$(tput sgr0) log printed by the latest $(tput bold)neocities-push-all.sh$(tput sgr0) call.\n  $(tput bold)2.$(tput sgr0) Paste it into $(tput bold)neocities-push-errorlog.out$(tput sgr0)\n  $(tput bold)3. $(tput sgr0)$(tput setaf 1)Only then$(tput sgr0) you may run this script."
 echo -e "\n"
 
-echo -e "$(tput setaf 2)neoaux-commit-add.out$(tput sgr0) and $(tput setaf 1)neoaux-commit-del.out$(tput sgr0): Each line names a file to be $(tput setaf 2)added$(tput sgr0) or $(tput setaf 1)deleted$(tput sgr0) from your neocities repository the next time $(tput bold)neo-commit$(tput sgr0) is called.\n  If a file to be added already exists in your repository, it'll be updated instead."
-echo -e "$(tput setaf 2)neo-commit$(tput sgr0): Selectively uploads and deletes files from your neocities repository. You may call it after $(tput bold)Git$(tput sgr0) commits.\n  $(tput setaf 1)Subject to neoaux-exclude.out$(tput sgr0)"
+echo -e "$(tput setaf 2)neoaux-commit-add.out$(tput sgr0) and $(tput setaf 1)neoaux-commit-DEL.out$(tput sgr0): Each line names a file to be $(tput setaf 2)added$(tput sgr0) or $(tput setaf 1)deleted$(tput sgr0) from your neocities repository the next time $(tput bold)neo-commit$(tput sgr0) is called.\n  If a file to be added already exists in your repository, it'll be updated instead."
+echo -e "$(tput setaf 2)neo-commit$(tput sgr0): Selectively deletes, then uploads files on your neocities repository. You may call it after $(tput bold)Git$(tput sgr0) commits.\n  $(tput setaf 1)Subject to neoaux-exclude.out$(tput sgr0)"
 }
 
 # Records and saves your neocities credentials.
